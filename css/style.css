@@ -1,0 +1,97 @@
+
+nav {
+    background-color: #2ecc71; 
+     display: flex; 
+     justify-content: space-around;
+    padding: 10px;
+} 
+​
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+​ 
+
+footer { 
+     background-color: #34495e; 
+    color: white; 
+    text-align: center;
+    padding: 10px; 
+}
+ body{
+    background-image:url(https://i.postimg.cc/q7cdjwmr/spotlight-on-the-wall-black-background-photo.jpg );
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+
+ main{
+    height: 900px;
+ }
+
+ .about-us {
+    text-align: center;
+    margin-top: 50px; /* Add margin as needed */
+}
+.card{
+    width: 15rem;
+    margin: 10px;
+}
+
+.about-us h1,
+        .about-us h2 {
+            color: white; 
+        }
+
+        .about-us p {
+            color: white; 
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+.card-group {
+    justify-content: center;
+    align-items: center;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    color:white; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2, p {
+    text-align: center;
+}
+
+.lead {
+    font-size: 1.2em;
+    color:white; 
+}
+
+.card {
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+}
+
+.card-title {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Set your desired primary button background color */
+    color: #fff; /* Set your desired primary button text color */
+}
