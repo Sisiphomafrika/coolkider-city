@@ -54,7 +54,7 @@ let productsData = [
           <div class="card-body">
             <h5 class="card-title">${product.name}</h5>
             <p class="card-text">Amount: $${product.amount}</p>
-            <a href="#" class="btn btn-primary">Add to Cart</a>
+            <a href="#" class="btn btn-primary" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</a>
           </div>
         </div>
       `;
@@ -76,11 +76,21 @@ let productsData = [
     let sortedProducts = [...products];
     if (sortBy === 'name') {
       sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortBy === 'amount') {
+    } else if (sortBy === 'price') {
       sortedProducts.sort((a, b) => a.amount - b.amount);
     }
     displayProduct(sortedProducts);
   }
+
+// sorting.addEventListener('click', => {
+//     try {
+//         let sortedProducts = products.slice().sort((a, b)  => {
+//             return a.amount - b.amount
+//         })
+//     } catch (e) {
+//         console.error(e);
+//     }
+// });
   
   // Event listeners
   searchInput.addEventListener('input', searchProducts);
@@ -88,4 +98,18 @@ let productsData = [
   
   //this will display the  Initial of the product
   displayProduct(products);
-  
+
+ 
+{
+}
+// will be adding to cart
+let cart = []
+function addToCart(item) {
+    // const productToAdd = products.find(product => product.data === productdata);
+    // if (productToAdd) {
+        cart.push(item);
+       localStorage.setItem('cart',JSON.stringify(cart));
+    // }
+} 
+
+
