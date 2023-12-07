@@ -17,7 +17,7 @@ let productsData = [
         'id': 3,
         'name': 'Sholder Bag',
         'amount': 1000,
-        'image': 'https://i.postimg.cc/R0057Dsn/images-5.jpg',
+        'image': 'https://mdbootstrap.com/img/new/ecommerce/vertical/075.jpg',
         'productType': 'zara'
       },
       {
