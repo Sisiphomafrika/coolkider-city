@@ -1,21 +1,61 @@
-function validateForm() {
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let address = document.getElementById('address').value;
-    let creditCard = document.getElementById('creditCard').value;
-    let expiryDate = document.getElementById('expiryDate').value;
-    let cvv = document.getElementById('cvv').value;
+// Function to clear the cart
+//function clearCart() {
+    // Logic to clear the cart goes here
+    // For example: document.getElementById('cart').innerHTML = '';
+//}
 
-    
-    // For simplicity, let's just check if all fields are filled
-    if (name === '' || email === '' || address === '' || creditCard === '' || expiryDate === '' || cvv === '') {
-        alert('Please fill in all fields.');
-        return false;
-    }
+// Function to show a thank-you alert
+//function showThankYouAlert() {
+   // alert('Thank you for purchasing!');
+//}
+ // Sample cart data (replace with actual cart data)
+ const ShoppingCart = [
+    { name: "Product 1", category: "Category A", quantity: 2, price: 50.00 },
+    { name: "Product 2", category: "Category B", quantity: 1, price: 30.00 }
+    // Add more products as needed
+];
 
-    // You can add more specific validation rules for each field if needed
+// Function to dynamically populate the cart table
+function AddToCart() {
+    const items = document.getElementById('items');
+    let totalAmount = 0;
 
-    // If all validations pass, you can proceed with the form submission
-    alert('Order placed successfully!');
-    return true;
+    // Create an array of HTML strings using map
+    const rows = ShoppingCart.map(product => {
+        const amount = product.quantity * product.price;
+        totalAmount += amount;
+
+        return `
+            <tr>
+                <td>${product.name}</td>
+                <td>${product.category}</td>
+                <td>${product.quantity}</td>
+                <td>$${amount.toFixed(2)}</td>
+            </tr>
+        `;
+    });
+
+    // Set the innerHTML by joining the array
+    cartBody.innerHTML = rows.join('');
+
+    // Update total amount
+    document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
 }
+
+// Function to clear the cart
+function clearCart() {
+    // Clear cart data
+    cart.length = 0;
+
+    // Repopulate the cart table
+    AddToCart();
+}
+
+// Function to display a thank-you alert
+function placeOrder() {
+    // Additional logic for placing the order goes here
+    alert('Thank you for purchasing!');
+}
+
+// Initial population of the cart table
+AddToCart();
