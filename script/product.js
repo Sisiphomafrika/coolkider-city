@@ -7,28 +7,28 @@ let productsData = [
       'productType': 'zara'
     },
     {
-        'id': 1,
+        'id': 2,
         'name': 'Sling Bag',
         'amount': 800,
         'image': 'https://i.postimg.cc/Nfssz5ST/images-11.jpg',
         'productType': 'zara'
       },
       {
-        'id': 1,
+        'id': 3,
         'name': 'Sholder Bag',
         'amount': 1000,
         'image': 'https://i.postimg.cc/R0057Dsn/images-5.jpg',
         'productType': 'zara'
       },
       {
-        'id': 1,
+        'id': 4,
         'name': 'Cross Body Bag',
         'amount': 1200,
         'image': 'https://i.postimg.cc/qqLmqksh/images-4.jpg',
         'productType': 'zara'
       },
       {
-        'id': 1,
+        'id': 5,
         'name': 'Cross-Body Bag-Faded-Tan',
         'amount': 2500,
         'image': 'https://i.postimg.cc/QNTjvkGn/Crossbody-Bags-Faded-Tan.png',
@@ -75,7 +75,7 @@ let productsData = [
     let sortBy = sortSelect.value;
     let sortedProducts = [...products];
     if (sortBy === 'name') {
-      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+      sortedProducts.sort((a, b) => a.name.localStorage(b.name));
     } else if (sortBy === 'price') {
       sortedProducts.sort((a, b) => a.amount - b.amount);
     }
