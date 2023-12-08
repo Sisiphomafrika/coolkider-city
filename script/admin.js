@@ -1,20 +1,43 @@
+let productsData = [
+    {
+      'id': 1,
+      'name': 'Leather Bag',
+      'amount': 1400,
+      'image': 'https://i.postimg.cc/PxHrB7Yq/98993524-800-800.png',
+      'productType': 'zara'
+    },
+    {
+        'id': 2,
+        'name': 'Sling Bag',
+        'amount': 800,
+        'image': 'https://i.postimg.cc/Nfssz5ST/images-11.jpg',
+        'productType': 'zara'
+      },
+      {
+        'id': 3,
+        'name': 'Sholder Bag',
+        'amount': 1000,
+        'image': 'https://mdbootstrap.com/img/new/ecommerce/vertical/075.jpg',
+        'productType': 'zara'
+      },
+      {
+        'id': 4,
+        'name': 'Cross Body Bag',
+        'amount': 1200,
+        'image': 'https://i.postimg.cc/qqLmqksh/images-4.jpg',
+        'productType': 'zara'
+      },
+      {
+        'id': 5,
+        'name': 'Cross-Body Bag-Faded-Tan',
+        'amount': 2500,
+        'image': 'https://i.postimg.cc/QNTjvkGn/Crossbody-Bags-Faded-Tan.png',
+        'productType': 'zara'
+      },
+      
+  ];
+let products = JSON.parse(localStorage.getItem('products')) || []
 
-let admin = []
-//object created
-function Constructor(name, description, price, url) {
-    this.name = name;
-    this.description = description;
-    this.price = price;
-    this.url=url;
-}
-let item1= new Constructor('DavidOff', 'A box of Special', 592.00,"https://i.postimg.cc/wBhsgtrh/davidoff.jpg")
-let item2= new Constructor ('Corona ', ' A box of Romeo y Julieta  ', 189.95, "https://i.postimg.cc/sxth3p34/corona.jpg")
-let item3= new Constructor('Cohiba' , ' A box of Siglo I', 560.00, "https://i.postimg.cc/fLP3vxSQ/ciger-c-jpg2.jpg")
-let item4= new Constructor ('Maduro', 'A Box of INCH No.64', 523.00, "https://i.postimg.cc/857dDkhD/maduro.jpg")
-let item5= new Constructor(' Fuente', 'A box of Chateau', 142, "https://i.postimg.cc/3JXX3cDy/arturo1.png" )
-admin.push(item1, item2, item3, item4, item5)
-localStorage.setItem('admin' , JSON.stringify(admin))
-admin=JSON.parse(localStorage.getItem('admin'))
 let table = document.querySelector('table');
 function o() {
     let p = admin.map(function (item,index) {
@@ -85,7 +108,13 @@ function addProduct() {
 
 
 
-
+//object created
+function UpdateProduct(item) {
+    this.name = name;
+    this.description = description;
+    this.price = price;
+    this.url=url;
+}
 
 
 
