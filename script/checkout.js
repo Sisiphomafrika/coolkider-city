@@ -1,61 +1,76 @@
-// Function to clear the cart
-//function clearCart() {
-    // Logic to clear the cart goes here
-    // For example: document.getElementById('cart').innerHTML = '';
-//}
-
-// Function to show a thank-you alert
-//function showThankYouAlert() {
-   // alert('Thank you for purchasing!');
-//}
- // Sample cart data (replace with actual cart data)
- const ShoppingCart = [
-    { name: "Product 1", category: "Category A", quantity: 2, price: 50.00 },
-    { name: "Product 2", category: "Category B", quantity: 1, price: 30.00 }
-    // Add more products as needed
-];
-
-// Function to dynamically populate the cart table
-function AddToCart() {
-    const items = document.getElementById('items');
-    let totalAmount = 0;
-
-    // Create an array of HTML strings using map
-    const rows = ShoppingCart.map(product => {
-        const amount = product.quantity * product.price;
-        totalAmount += amount;
-
-        return `
-            <tr>
-                <td>${product.name}</td>
-                <td>${product.category}</td>
-                <td>${product.quantity}</td>
-                <td>$${amount.toFixed(2)}</td>
-            </tr>
-        `;
-    });
-
-    // Set the innerHTML by joining the array
-    cartBody.innerHTML = rows.join('');
-
-    // Update total amount
-    document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
-}
-
-// Function to clear the cart
-function clearCart() {
-    // Clear cart data
-    cart.length = 0;
-
-    // Repopulate the cart table
-    AddToCart();
-}
-
-// Function to display a thank-you alert
-function placeOrder() {
-    // Additional logic for placing the order goes here
-    alert('Thank you for purchasing!');
-}
-
-// Initial population of the cart table
-AddToCart();
+let productsData = [
+    {
+      'id': 1,
+      'name': 'Leather Bag',
+      'amount': 1400,
+      'image': 'https://i.postimg.cc/PxHrB7Yq/98993524-800-800.png',
+      'productType': 'zara'
+    },
+    {
+        'id': 2,
+        'name': 'Sling Bag',
+        'amount': 800,
+        'image': 'https://i.postimg.cc/Nfssz5ST/images-11.jpg',
+        'productType': 'zara'
+      },
+      {
+        'id': 3,
+        'name': 'Sholder Bag',
+        'amount': 1000,
+        'image': 'https://mdbootstrap.com/img/new/ecommerce/vertical/075.jpg',
+        'productType': 'zara'
+      },
+      {
+        'id': 4,
+        'name': 'Cross Body Bag',
+        'amount': 1200,
+        'image': 'https://i.postimg.cc/qqLmqksh/images-4.jpg',
+        'productType': 'zara'
+      },
+      {
+        'id': 5,
+        'name': 'Cross-Body Bag-Faded-Tan',
+        'amount': 2500,
+        'image': 'https://i.postimg.cc/QNTjvkGn/Crossbody-Bags-Faded-Tan.png',
+        'productType': 'zara'
+      },
+      
+  ];
+  let checkout = JSON.parse(localStorage.getItem('Cart')) || [];
+  const cartWrapper = document.querySelector('[data-checkout]');
+  
+  function displayCheckout() {
+      cartWrapper.innerHTML = "";
+      let items = groupBy(checkout, item => item.id);
+  
+      for (const key in items) {
+          if (Object.hasOwnProperty.call(items, key)) {
+              const itemGroup = items[key];
+              const itemName = itemGroup[0].name;
+              const itemCount = itemGroup.length;
+              const itemAmount = itemGroup[0].amount;
+              const totalAmount = itemCount * itemAmount;
+  
+              cartWrapper.innerHTML += `
+                  <tr>
+                      <td>${itemName}</td>
+                      <td>${itemCount}</td>
+                      <td>R${itemAmount}</td>
+                      <td>R${totalAmount}</td>
+                  </tr>
+              `;
+          }
+      }
+  }
+  
+  // Grouping function 
+  function groupBy(array, getKey) {
+      return array.reduce((result, item) => {
+          const key = getKey(item);
+          (result[key] || (result[key] = [])).push(item);
+          return result;
+      }, {});
+  }
+  
+  // Call function to display checkout
+  displayCheckout();

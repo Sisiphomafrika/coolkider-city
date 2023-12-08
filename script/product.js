@@ -39,26 +39,26 @@ let productsData = [
   
   
   let products = JSON.parse(localStorage.getItem('products')) || productsData;
-  localStorage.setItem('products', JSON.stringify(products));
   
   let productsWrapper = document.querySelector('[data-products]');
   let searchInput = document.querySelector('[data-search-product]');
   let sortSelect = document.querySelector('[data-products-sort]');
-  
+  // products = [...products]
   function displayProduct(productsToDisplay) {
     productsWrapper.innerHTML = '';
     productsToDisplay.forEach((product) => {
       productsWrapper.innerHTML += `
-        <div class="card mt-5">
-          <img src="${product.image}" class="card-img-top" alt="${product.name}">
-          <div class="card-body">
-            <h5 class="card-title">${product.name}</h5>
-            <p class="card-text">Amount: $${product.amount}</p>
-            <a href="#" class="btn btn-primary" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</a>
-          </div>
-        </div>
+      <div class="card mt-5">
+      <img src="${product.image}" class="card-img-top" alt="${product.name}">
+      <div class="card-body">
+      <h5 class="card-title">${product.name}</h5>
+      <p class="card-text">Amount: $${product.amount}</p>
+      <a href="#" class="btn btn-primary" onclick='addToCart(${JSON.stringify(product)})'>Add to Cart</a>
+      </div>
+      </div>
       `;
     });
+    localStorage.setItem('products', JSON.stringify(products));
   }
   displayProduct(products)
   

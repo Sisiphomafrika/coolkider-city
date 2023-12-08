@@ -183,3 +183,36 @@ h1 {
     color: red;
     margin-bottom: 16px;
   }
+
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color:black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(154, 4, 4, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: black;
+}
