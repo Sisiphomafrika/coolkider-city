@@ -36,13 +36,15 @@ let productsData = [
       },
       
   ];
-  let checkout = JSON.parse(localStorage.getItem('Cart')) || [];
-  const cartWrapper = document.querySelector('[data-checkout]');
+  let checkout = JSON.parse(localStorage.getItem('cart')) || [];
+  
+
+  let displayTableData = document.querySelector('[data-checkout]')
   
   function displayCheckout() {
-      cartWrapper.innerHTML = "";
+    displayTableData.innerHTML = "";
       let items = groupBy(checkout, item => item.id);
-  
+    console.log(items);
       for (const key in items) {
           if (Object.hasOwnProperty.call(items, key)) {
               const itemGroup = items[key];
@@ -51,7 +53,7 @@ let productsData = [
               const itemAmount = itemGroup[0].amount;
               const totalAmount = itemCount * itemAmount;
   
-              cartWrapper.innerHTML += `
+              displayTableData.innerHTML += `
                   <tr>
                       <td>${itemName}</td>
                       <td>${itemCount}</td>
