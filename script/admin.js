@@ -36,6 +36,7 @@ let productsData = [
       },
       
   ];
+  displayProductData()
 let products = JSON.parse(localStorage.getItem('products')) || []
 
 let table = document.querySelector('table');
@@ -87,18 +88,17 @@ function herModal(item) {
     document.querySelector('.modal-body p').innerText = `Description: ${item.description}\nPrice: R ${item.price}`;
 Modals.show();
 };
-//Function to add a new product
+
 function addProduct() {
-  // Get values from input fields
+ 
   let pName = document.getElementById('pName').value;
   let Description = document.getElementById('Description').value;
   let ProductImageUrl = document.getElementById('ProductImageUrl').value;
   let ProductPrice = parseFloat(document.getElementById('ProductPrice').value);
-  // Create a new product object
+ 
   let newItem = new Constructor(pName, Description, ProductPrice, ProductImageUrl);
-  // Add the new product to the admin array
+
   admin.push(newItem);
-  // Update the table and local storage
   Ape();
   o();
   // Close the modal
